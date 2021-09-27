@@ -14,8 +14,8 @@ num1 = 1
 num2 = 2
 even_sum = 0
 
-while num2 < 4000000 do
-  even_sum += num2 unless num2 % 2 != 0 
+while num2 < 4_000_000
+  even_sum += num2 unless num2 % 2 != 0
 
   # Generate new Fibonacci numbers
   new_num = num1 + num2

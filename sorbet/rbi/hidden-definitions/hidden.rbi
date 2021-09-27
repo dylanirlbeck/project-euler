@@ -50,7 +50,7 @@ end
 class Bundler::Env
   def self.environment(); end
 
-  def self.report(options=T.unsafe(nil)); end
+  def self.report(options = T.unsafe(nil)); end
 
   def self.write(io); end
 end
@@ -145,13 +145,17 @@ class Bundler::Fetcher::CompactIndex
 end
 
 class Bundler::Fetcher::Dependency
-  def dependency_api_uri(gem_names=T.unsafe(nil)); end
+  def dependency_api_uri(gem_names = T.unsafe(nil)); end
 
   def dependency_specs(gem_names); end
 
   def get_formatted_specs_and_deps(gem_list); end
 
-  def specs(gem_names, full_dependency_list=T.unsafe(nil), last_spec_list=T.unsafe(nil)); end
+  def specs(
+    gem_names,
+    full_dependency_list = T.unsafe(nil),
+    last_spec_list = T.unsafe(nil)
+  ); end
 
   def unmarshalled_dep_gems(gem_names); end
 end
@@ -162,7 +166,7 @@ end
 class Bundler::Fetcher::Downloader
   def connection(); end
 
-  def fetch(uri, headers=T.unsafe(nil), counter=T.unsafe(nil)); end
+  def fetch(uri, headers = T.unsafe(nil), counter = T.unsafe(nil)); end
 
   def initialize(connection, redirect_limit); end
 
@@ -184,7 +188,7 @@ class Bundler::Fetcher::Index
 end
 
 class Bundler::Fetcher::SSLError
-  def initialize(msg=T.unsafe(nil)); end
+  def initialize(msg = T.unsafe(nil)); end
 end
 
 class Bundler::Fetcher::TooManyRequestsError
@@ -220,9 +224,21 @@ class Bundler::FileUtils::Entry_
 end
 
 module Bundler::FileUtils
-  def self.cp_lr(src, dest, noop: T.unsafe(nil), verbose: T.unsafe(nil), dereference_root: T.unsafe(nil), remove_destination: T.unsafe(nil)); end
+  def self.cp_lr(
+    src,
+    dest,
+    noop: T.unsafe(nil),
+    verbose: T.unsafe(nil),
+    dereference_root: T.unsafe(nil),
+    remove_destination: T.unsafe(nil)
+  ); end
 
-  def self.link_entry(src, dest, dereference_root=T.unsafe(nil), remove_destination=T.unsafe(nil)); end
+  def self.link_entry(
+    src,
+    dest,
+    dereference_root = T.unsafe(nil),
+    remove_destination = T.unsafe(nil)
+  ); end
 end
 
 class Bundler::GemHelper
@@ -250,19 +266,19 @@ class Bundler::GemHelper
 
   def gemspec(); end
 
-  def git_push(remote=T.unsafe(nil)); end
+  def git_push(remote = T.unsafe(nil)); end
 
   def guard_clean(); end
 
-  def initialize(base=T.unsafe(nil), name=T.unsafe(nil)); end
+  def initialize(base = T.unsafe(nil), name = T.unsafe(nil)); end
 
   def install(); end
 
-  def install_gem(built_gem_path=T.unsafe(nil), local=T.unsafe(nil)); end
+  def install_gem(built_gem_path = T.unsafe(nil), local = T.unsafe(nil)); end
 
   def name(); end
 
-  def perform_git_push(options=T.unsafe(nil)); end
+  def perform_git_push(options = T.unsafe(nil)); end
 
   def rubygem_push(path); end
 
@@ -284,7 +300,7 @@ end
 class Bundler::GemHelper
   def self.gemspec(&block); end
 
-  def self.install_tasks(opts=T.unsafe(nil)); end
+  def self.install_tasks(opts = T.unsafe(nil)); end
 
   def self.instance(); end
 
@@ -292,7 +308,7 @@ class Bundler::GemHelper
 end
 
 class Bundler::GemVersionPromoter
-  def initialize(locked_specs=T.unsafe(nil), unlock_gems=T.unsafe(nil)); end
+  def initialize(locked_specs = T.unsafe(nil), unlock_gems = T.unsafe(nil)); end
 
   def level(); end
 
@@ -326,7 +342,14 @@ class Bundler::Graph
 
   def groups(); end
 
-  def initialize(env, output_file, show_version=T.unsafe(nil), show_requirements=T.unsafe(nil), output_format=T.unsafe(nil), without=T.unsafe(nil)); end
+  def initialize(
+    env,
+    output_file,
+    show_version = T.unsafe(nil),
+    show_requirements = T.unsafe(nil),
+    output_format = T.unsafe(nil),
+    without = T.unsafe(nil)
+  ); end
 
   def node_options(); end
 
@@ -359,7 +382,7 @@ class Bundler::Index
 end
 
 class Bundler::Injector
-  def initialize(deps, options=T.unsafe(nil)); end
+  def initialize(deps, options = T.unsafe(nil)); end
 
   def inject(gemfile_path, lockfile_path); end
 
@@ -368,13 +391,13 @@ class Bundler::Injector
 end
 
 class Bundler::Injector
-  def self.inject(new_deps, options=T.unsafe(nil)); end
+  def self.inject(new_deps, options = T.unsafe(nil)); end
 
-  def self.remove(gems, options=T.unsafe(nil)); end
+  def self.remove(gems, options = T.unsafe(nil)); end
 end
 
 class Bundler::Installer
-  def generate_bundler_executable_stubs(spec, options=T.unsafe(nil)); end
+  def generate_bundler_executable_stubs(spec, options = T.unsafe(nil)); end
 
   def generate_standalone_bundler_executable_stubs(spec); end
 
@@ -390,7 +413,7 @@ class Bundler::Installer
 
   def self.ambiguous_gems=(ambiguous_gems); end
 
-  def self.install(root, definition, options=T.unsafe(nil)); end
+  def self.install(root, definition, options = T.unsafe(nil)); end
 end
 
 class Bundler::Molinillo::DependencyGraph
@@ -402,9 +425,9 @@ class Bundler::Molinillo::DependencyGraph::Log
 end
 
 class Bundler::Molinillo::DependencyGraph::Vertex
-  def _recursive_predecessors(vertices=T.unsafe(nil)); end
+  def _recursive_predecessors(vertices = T.unsafe(nil)); end
 
-  def _recursive_successors(vertices=T.unsafe(nil)); end
+  def _recursive_successors(vertices = T.unsafe(nil)); end
 end
 
 module Bundler::Plugin::API::Source
@@ -412,11 +435,11 @@ module Bundler::Plugin::API::Source
 
   def app_cache_dirname(); end
 
-  def app_cache_path(custom_path=T.unsafe(nil)); end
+  def app_cache_path(custom_path = T.unsafe(nil)); end
 
   def bundler_plugin_api_source?(); end
 
-  def cache(spec, custom_path=T.unsafe(nil)); end
+  def cache(spec, custom_path = T.unsafe(nil)); end
 
   def cached!(); end
 
@@ -452,7 +475,7 @@ module Bundler::Plugin::API::Source
 
   def options_to_lock(); end
 
-  def post_install(spec, disable_exts=T.unsafe(nil)); end
+  def post_install(spec, disable_exts = T.unsafe(nil)); end
 
   def remote!(); end
 
@@ -510,7 +533,7 @@ class Bundler::Plugin::Installer
 end
 
 class Bundler::Plugin::Installer::Git
-  def generate_bin(spec, disable_extensions=T.unsafe(nil)); end
+  def generate_bin(spec, disable_extensions = T.unsafe(nil)); end
 end
 
 class Bundler::Plugin::Installer::Git
@@ -539,7 +562,7 @@ class Bundler::ProcessLock
 end
 
 class Bundler::ProcessLock
-  def self.lock(bundle_path=T.unsafe(nil)); end
+  def self.lock(bundle_path = T.unsafe(nil)); end
 end
 
 class Bundler::Retry
@@ -551,7 +574,7 @@ class Bundler::Retry
 
   def current_run=(current_run); end
 
-  def initialize(name, exceptions=T.unsafe(nil), retries=T.unsafe(nil)); end
+  def initialize(name, exceptions = T.unsafe(nil), retries = T.unsafe(nil)); end
 
   def name(); end
 
@@ -607,7 +630,7 @@ class Bundler::Settings::Mirror
 
   def fallback_timeout=(timeout); end
 
-  def initialize(uri=T.unsafe(nil), fallback_timeout=T.unsafe(nil)); end
+  def initialize(uri = T.unsafe(nil), fallback_timeout = T.unsafe(nil)); end
 
   def uri(); end
 
@@ -615,7 +638,7 @@ class Bundler::Settings::Mirror
 
   def valid?(); end
 
-  def validate!(probe=T.unsafe(nil)); end
+  def validate!(probe = T.unsafe(nil)); end
   DEFAULT_FALLBACK_TIMEOUT = ::T.let(nil, ::T.untyped)
 end
 
@@ -627,7 +650,7 @@ class Bundler::Settings::Mirrors
 
   def for(uri); end
 
-  def initialize(prober=T.unsafe(nil)); end
+  def initialize(prober = T.unsafe(nil)); end
 
   def parse(key, value); end
 end
@@ -671,7 +694,7 @@ class Bundler::Thor
   include ::Bundler::Thor::Base
   include ::Bundler::Thor::Invocation
   include ::Bundler::Thor::Shell
-  def help(command=T.unsafe(nil), subcommand=T.unsafe(nil)); end
+  def help(command = T.unsafe(nil), subcommand = T.unsafe(nil)); end
   HELP_MAPPINGS = ::T.let(nil, ::T.untyped)
   TEMPLATE_EXTNAME = ::T.let(nil, ::T.untyped)
   THOR_RESERVED_WORDS = ::T.let(nil, ::T.untyped)
@@ -692,13 +715,13 @@ module Bundler::Thor::Actions
 
   def append_to_file(path, *args, &block); end
 
-  def apply(path, config=T.unsafe(nil)); end
+  def apply(path, config = T.unsafe(nil)); end
 
   def behavior(); end
 
   def behavior=(behavior); end
 
-  def chmod(path, mode, config=T.unsafe(nil)); end
+  def chmod(path, mode, config = T.unsafe(nil)); end
 
   def comment_lines(path, flag, *args); end
 
@@ -714,7 +737,7 @@ module Bundler::Thor::Actions
 
   def directory(source, *args, &block); end
 
-  def empty_directory(destination, config=T.unsafe(nil)); end
+  def empty_directory(destination, config = T.unsafe(nil)); end
 
   def find_in_source_paths(file); end
 
@@ -724,7 +747,11 @@ module Bundler::Thor::Actions
 
   def in_root(); end
 
-  def initialize(args=T.unsafe(nil), options=T.unsafe(nil), config=T.unsafe(nil)); end
+  def initialize(
+    args = T.unsafe(nil),
+    options = T.unsafe(nil),
+    config = T.unsafe(nil)
+  ); end
 
   def inject_into_class(path, klass, *args, &block); end
 
@@ -734,7 +761,7 @@ module Bundler::Thor::Actions
 
   def insert_into_file(destination, *args, &block); end
 
-  def inside(dir=T.unsafe(nil), config=T.unsafe(nil), &block); end
+  def inside(dir = T.unsafe(nil), config = T.unsafe(nil), &block); end
 
   def link_file(source, *args); end
 
@@ -742,15 +769,18 @@ module Bundler::Thor::Actions
 
   def prepend_to_file(path, *args, &block); end
 
-  def relative_to_original_destination_root(path, remove_dot=T.unsafe(nil)); end
+  def relative_to_original_destination_root(
+    path,
+    remove_dot = T.unsafe(nil)
+  ); end
 
-  def remove_dir(path, config=T.unsafe(nil)); end
+  def remove_dir(path, config = T.unsafe(nil)); end
 
-  def remove_file(path, config=T.unsafe(nil)); end
+  def remove_file(path, config = T.unsafe(nil)); end
 
-  def run(command, config=T.unsafe(nil)); end
+  def run(command, config = T.unsafe(nil)); end
 
-  def run_ruby_script(command, config=T.unsafe(nil)); end
+  def run_ruby_script(command, config = T.unsafe(nil)); end
 
   def source_paths(); end
 
@@ -775,7 +805,7 @@ module Bundler::Thor::Actions::ClassMethods
 
   def source_paths_for_search(); end
 
-  def source_root(path=T.unsafe(nil)); end
+  def source_root(path = T.unsafe(nil)); end
 end
 
 module Bundler::Thor::Actions::ClassMethods
@@ -790,7 +820,7 @@ class Bundler::Thor::Actions::CreateFile
 
   def identical?(); end
 
-  def initialize(base, destination, data, config=T.unsafe(nil)); end
+  def initialize(base, destination, data, config = T.unsafe(nil)); end
 
   def on_conflict_behavior(&block); end
 
@@ -813,7 +843,13 @@ class Bundler::Thor::Actions::Directory
 
   def files(lookup); end
 
-  def initialize(base, source, destination=T.unsafe(nil), config=T.unsafe(nil), &block); end
+  def initialize(
+    base,
+    source,
+    destination = T.unsafe(nil),
+    config = T.unsafe(nil),
+    &block
+  ); end
 
   def source(); end
 end
@@ -836,7 +872,7 @@ class Bundler::Thor::Actions::EmptyDirectory
 
   def given_destination(); end
 
-  def initialize(base, destination, config=T.unsafe(nil)); end
+  def initialize(base, destination, config = T.unsafe(nil)); end
 
   def invoke!(); end
 
@@ -900,7 +936,7 @@ class Bundler::Thor::Argument
 
   def human_name(); end
 
-  def initialize(name, options=T.unsafe(nil)); end
+  def initialize(name, options = T.unsafe(nil)); end
 
   def name(); end
 
@@ -924,7 +960,7 @@ class Bundler::Thor::Argument
 end
 
 class Bundler::Thor::Arguments
-  def initialize(arguments=T.unsafe(nil)); end
+  def initialize(arguments = T.unsafe(nil)); end
 
   def parse(args); end
 
@@ -943,7 +979,11 @@ module Bundler::Thor::Base
 
   def args=(args); end
 
-  def initialize(args=T.unsafe(nil), local_options=T.unsafe(nil), config=T.unsafe(nil)); end
+  def initialize(
+    args = T.unsafe(nil),
+    local_options = T.unsafe(nil),
+    config = T.unsafe(nil)
+  ); end
 
   def options(); end
 
@@ -961,7 +1001,7 @@ module Bundler::Thor::Base::ClassMethods
 
   def allow_incompatible_default_type!(); end
 
-  def argument(name, options=T.unsafe(nil)); end
+  def argument(name, options = T.unsafe(nil)); end
 
   def arguments(); end
 
@@ -989,11 +1029,11 @@ module Bundler::Thor::Base::ClassMethods
 
   def check_unknown_options?(config); end
 
-  def class_option(name, options=T.unsafe(nil)); end
+  def class_option(name, options = T.unsafe(nil)); end
 
-  def class_options(options=T.unsafe(nil)); end
+  def class_options(options = T.unsafe(nil)); end
 
-  def class_options_help(shell, groups=T.unsafe(nil)); end
+  def class_options_help(shell, groups = T.unsafe(nil)); end
 
   def commands(); end
 
@@ -1011,15 +1051,15 @@ module Bundler::Thor::Base::ClassMethods
 
   def find_and_refresh_task(name); end
 
-  def from_superclass(method, default=T.unsafe(nil)); end
+  def from_superclass(method, default = T.unsafe(nil)); end
 
-  def group(name=T.unsafe(nil)); end
+  def group(name = T.unsafe(nil)); end
 
   def handle_argument_error(command, error, args, arity); end
 
-  def handle_no_command_error(command, has_namespace=T.unsafe(nil)); end
+  def handle_no_command_error(command, has_namespace = T.unsafe(nil)); end
 
-  def handle_no_task_error(command, has_namespace=T.unsafe(nil)); end
+  def handle_no_task_error(command, has_namespace = T.unsafe(nil)); end
 
   def inherited(klass); end
 
@@ -1029,7 +1069,7 @@ module Bundler::Thor::Base::ClassMethods
 
   def method_added(meth); end
 
-  def namespace(name=T.unsafe(nil)); end
+  def namespace(name = T.unsafe(nil)); end
 
   def no_commands(&block); end
 
@@ -1039,7 +1079,7 @@ module Bundler::Thor::Base::ClassMethods
 
   def no_tasks(&block); end
 
-  def print_options(shell, options, group_name=T.unsafe(nil)); end
+  def print_options(shell, options, group_name = T.unsafe(nil)); end
 
   def public_command(*names); end
 
@@ -1053,7 +1093,7 @@ module Bundler::Thor::Base::ClassMethods
 
   def remove_task(*names); end
 
-  def start(given_args=T.unsafe(nil), config=T.unsafe(nil)); end
+  def start(given_args = T.unsafe(nil), config = T.unsafe(nil)); end
 
   def stop_on_unknown_option?(command_name); end
 
@@ -1084,7 +1124,11 @@ module Bundler::Thor::Base
 end
 
 class Bundler::Thor::Command
-  def formatted_usage(klass, namespace=T.unsafe(nil), subcommand=T.unsafe(nil)); end
+  def formatted_usage(
+    klass,
+    namespace = T.unsafe(nil),
+    subcommand = T.unsafe(nil)
+  ); end
 
   def handle_argument_error?(instance, error, caller); end
 
@@ -1092,7 +1136,13 @@ class Bundler::Thor::Command
 
   def hidden?(); end
 
-  def initialize(name, description, long_description, usage, options=T.unsafe(nil)); end
+  def initialize(
+    name,
+    description,
+    long_description,
+    usage,
+    options = T.unsafe(nil)
+  ); end
 
   def local_method?(instance, name); end
 
@@ -1106,7 +1156,7 @@ class Bundler::Thor::Command
 
   def required_options(); end
 
-  def run(instance, args=T.unsafe(nil)); end
+  def run(instance, args = T.unsafe(nil)); end
 
   def sans_backtrace(backtrace, caller); end
   FILE_REGEXP = ::T.let(nil, ::T.untyped)
@@ -1129,7 +1179,7 @@ class Bundler::Thor::CoreExt::HashWithIndifferentAccess
 
   def fetch(key, *args); end
 
-  def initialize(hash=T.unsafe(nil)); end
+  def initialize(hash = T.unsafe(nil)); end
 
   def key?(key); end
 
@@ -1157,7 +1207,7 @@ end
 Bundler::Thor::Correctable = DidYouMean::Correctable
 
 class Bundler::Thor::DynamicCommand
-  def initialize(name, options=T.unsafe(nil)); end
+  def initialize(name, options = T.unsafe(nil)); end
 end
 
 class Bundler::Thor::DynamicCommand
@@ -1175,7 +1225,12 @@ class Bundler::Thor::Group
   include ::Bundler::Thor::Base
   include ::Bundler::Thor::Invocation
   include ::Bundler::Thor::Shell
-  def _invoke_for_class_method(klass, command=T.unsafe(nil), *args, &block); end
+  def _invoke_for_class_method(
+    klass,
+    command = T.unsafe(nil),
+    *args,
+    &block
+  ); end
 end
 
 class Bundler::Thor::Group
@@ -1183,7 +1238,7 @@ class Bundler::Thor::Group
   extend ::Bundler::Thor::Invocation::ClassMethods
   def self.banner(); end
 
-  def self.desc(description=T.unsafe(nil)); end
+  def self.desc(description = T.unsafe(nil)); end
 
   def self.get_options_from_invocations(group_options, base_options); end
 
@@ -1221,17 +1276,22 @@ Bundler::Thor::HiddenTask = Bundler::Thor::HiddenCommand
 module Bundler::Thor::Invocation
   def _parse_initialization_options(args, opts, config); end
 
-  def _retrieve_class_and_command(name, sent_command=T.unsafe(nil)); end
+  def _retrieve_class_and_command(name, sent_command = T.unsafe(nil)); end
 
-  def _retrieve_class_and_task(name, sent_command=T.unsafe(nil)); end
+  def _retrieve_class_and_task(name, sent_command = T.unsafe(nil)); end
 
   def _shared_configuration(); end
 
   def current_command_chain(); end
 
-  def initialize(args=T.unsafe(nil), options=T.unsafe(nil), config=T.unsafe(nil), &block); end
+  def initialize(
+    args = T.unsafe(nil),
+    options = T.unsafe(nil),
+    config = T.unsafe(nil),
+    &block
+  ); end
 
-  def invoke(name=T.unsafe(nil), *args); end
+  def invoke(name = T.unsafe(nil), *args); end
 
   def invoke_all(); end
 
@@ -1294,7 +1354,7 @@ end
 module Bundler::Thor::LineEditor
   def self.best_available(); end
 
-  def self.readline(prompt, options=T.unsafe(nil)); end
+  def self.readline(prompt, options = T.unsafe(nil)); end
 end
 
 class Bundler::Thor::MalformattedArgumentError
@@ -1348,7 +1408,7 @@ class Bundler::Thor::Option
 
   def undasherize(str); end
 
-  def usage(padding=T.unsafe(nil)); end
+  def usage(padding = T.unsafe(nil)); end
 
   def validate_default_type!(); end
   VALID_TYPES = ::T.let(nil, ::T.untyped)
@@ -1367,7 +1427,12 @@ class Bundler::Thor::Options
 
   def current_is_switch_formatted?(); end
 
-  def initialize(hash_options=T.unsafe(nil), defaults=T.unsafe(nil), stop_on_unknown=T.unsafe(nil), disable_required_check=T.unsafe(nil)); end
+  def initialize(
+    hash_options = T.unsafe(nil),
+    defaults = T.unsafe(nil),
+    stop_on_unknown = T.unsafe(nil),
+    disable_required_check = T.unsafe(nil)
+  ); end
 
   def normalize_switch(arg); end
 
@@ -1413,7 +1478,11 @@ module Bundler::Thor::Shell
 
   def file_collision(*args, &block); end
 
-  def initialize(args=T.unsafe(nil), options=T.unsafe(nil), config=T.unsafe(nil)); end
+  def initialize(
+    args = T.unsafe(nil),
+    options = T.unsafe(nil),
+    config = T.unsafe(nil)
+  ); end
 
   def no?(*args, &block); end
 
@@ -1472,7 +1541,7 @@ class Bundler::Thor::Shell::Basic
 
   def git_merge_tool(); end
 
-  def indent(count=T.unsafe(nil)); end
+  def indent(count = T.unsafe(nil)); end
 
   def is?(value); end
 
@@ -1486,7 +1555,7 @@ class Bundler::Thor::Shell::Basic
 
   def mute?(); end
 
-  def no?(statement, color=T.unsafe(nil)); end
+  def no?(statement, color = T.unsafe(nil)); end
 
   def padding(); end
 
@@ -1496,15 +1565,19 @@ class Bundler::Thor::Shell::Basic
 
   def print_in_columns(array); end
 
-  def print_table(array, options=T.unsafe(nil)); end
+  def print_table(array, options = T.unsafe(nil)); end
 
-  def print_wrapped(message, options=T.unsafe(nil)); end
+  def print_wrapped(message, options = T.unsafe(nil)); end
 
   def quiet?(); end
 
-  def say(message=T.unsafe(nil), color=T.unsafe(nil), force_new_line=T.unsafe(nil)); end
+  def say(
+    message = T.unsafe(nil),
+    color = T.unsafe(nil),
+    force_new_line = T.unsafe(nil)
+  ); end
 
-  def say_status(status, message, log_status=T.unsafe(nil)); end
+  def say_status(status, message, log_status = T.unsafe(nil)); end
 
   def set_color(string, *arg); end
 
@@ -1520,7 +1593,7 @@ class Bundler::Thor::Shell::Basic
 
   def unix?(); end
 
-  def yes?(statement, color=T.unsafe(nil)); end
+  def yes?(statement, color = T.unsafe(nil)); end
   DEFAULT_TERMINAL_WIDTH = ::T.let(nil, ::T.untyped)
 end
 
@@ -1559,7 +1632,7 @@ class Bundler::Thor::Shell::Color
 end
 
 class Bundler::Thor::Shell::HTML
-  def ask(statement, color=T.unsafe(nil)); end
+  def ask(statement, color = T.unsafe(nil)); end
 
   def diff_lcs_loaded?(); end
 
@@ -1657,17 +1730,27 @@ module Bundler::Thor::Util
 
   def self.find_by_namespace(namespace); end
 
-  def self.find_class_and_command_by_namespace(namespace, fallback=T.unsafe(nil)); end
+  def self.find_class_and_command_by_namespace(
+    namespace,
+    fallback = T.unsafe(nil)
+  ); end
 
-  def self.find_class_and_task_by_namespace(namespace, fallback=T.unsafe(nil)); end
+  def self.find_class_and_task_by_namespace(
+    namespace,
+    fallback = T.unsafe(nil)
+  ); end
 
   def self.globs_for(path); end
 
-  def self.load_thorfile(path, content=T.unsafe(nil), debug=T.unsafe(nil)); end
+  def self.load_thorfile(
+    path,
+    content = T.unsafe(nil),
+    debug = T.unsafe(nil)
+  ); end
 
   def self.namespace_from_thor_class(constant); end
 
-  def self.namespaces_in_content(contents, file=T.unsafe(nil)); end
+  def self.namespaces_in_content(contents, file = T.unsafe(nil)); end
 
   def self.ruby_command(); end
 
@@ -1685,19 +1768,23 @@ end
 class Bundler::Thor
   extend ::Bundler::Thor::Base::ClassMethods
   extend ::Bundler::Thor::Invocation::ClassMethods
-  def self.banner(command, namespace=T.unsafe(nil), subcommand=T.unsafe(nil)); end
+  def self.banner(
+    command,
+    namespace = T.unsafe(nil),
+    subcommand = T.unsafe(nil)
+  ); end
 
-  def self.check_unknown_options!(options=T.unsafe(nil)); end
+  def self.check_unknown_options!(options = T.unsafe(nil)); end
 
   def self.command_help(shell, command_name); end
 
-  def self.default_command(meth=T.unsafe(nil)); end
+  def self.default_command(meth = T.unsafe(nil)); end
 
-  def self.default_task(meth=T.unsafe(nil)); end
+  def self.default_task(meth = T.unsafe(nil)); end
 
   def self.deprecation_warning(message); end
 
-  def self.desc(usage, description, options=T.unsafe(nil)); end
+  def self.desc(usage, description, options = T.unsafe(nil)); end
 
   def self.disable_required_check(); end
 
@@ -1713,31 +1800,40 @@ class Bundler::Thor
 
   def self.find_task_possibilities(meth); end
 
-  def self.help(shell, subcommand=T.unsafe(nil)); end
+  def self.help(shell, subcommand = T.unsafe(nil)); end
 
-  def self.long_desc(long_description, options=T.unsafe(nil)); end
+  def self.long_desc(long_description, options = T.unsafe(nil)); end
 
-  def self.map(mappings=T.unsafe(nil), **kw); end
+  def self.map(mappings = T.unsafe(nil), **kw); end
 
-  def self.method_option(name, options=T.unsafe(nil)); end
+  def self.method_option(name, options = T.unsafe(nil)); end
 
-  def self.method_options(options=T.unsafe(nil)); end
+  def self.method_options(options = T.unsafe(nil)); end
 
   def self.normalize_command_name(meth); end
 
   def self.normalize_task_name(meth); end
 
-  def self.option(name, options=T.unsafe(nil)); end
+  def self.option(name, options = T.unsafe(nil)); end
 
-  def self.options(options=T.unsafe(nil)); end
+  def self.options(options = T.unsafe(nil)); end
 
-  def self.package_name(name, _=T.unsafe(nil)); end
+  def self.package_name(name, _ = T.unsafe(nil)); end
 
-  def self.printable_commands(all=T.unsafe(nil), subcommand=T.unsafe(nil)); end
+  def self.printable_commands(
+    all = T.unsafe(nil),
+    subcommand = T.unsafe(nil)
+  ); end
 
-  def self.printable_tasks(all=T.unsafe(nil), subcommand=T.unsafe(nil)); end
+  def self.printable_tasks(all = T.unsafe(nil), subcommand = T.unsafe(nil)); end
 
-  def self.register(klass, subcommand_name, usage, description, options=T.unsafe(nil)); end
+  def self.register(
+    klass,
+    subcommand_name,
+    usage,
+    description,
+    options = T.unsafe(nil)
+  ); end
 
   def self.retrieve_command_name(args); end
 
@@ -1771,19 +1867,19 @@ class Bundler::UI::Shell
 
   def ask(msg); end
 
-  def confirm(msg, newline=T.unsafe(nil)); end
+  def confirm(msg, newline = T.unsafe(nil)); end
 
-  def debug(msg, newline=T.unsafe(nil)); end
+  def debug(msg, newline = T.unsafe(nil)); end
 
   def debug?(); end
 
-  def error(msg, newline=T.unsafe(nil)); end
+  def error(msg, newline = T.unsafe(nil)); end
 
-  def info(msg, newline=T.unsafe(nil)); end
+  def info(msg, newline = T.unsafe(nil)); end
 
-  def initialize(options=T.unsafe(nil)); end
+  def initialize(options = T.unsafe(nil)); end
 
-  def level(name=T.unsafe(nil)); end
+  def level(name = T.unsafe(nil)); end
 
   def level=(level); end
 
@@ -1795,11 +1891,11 @@ class Bundler::UI::Shell
 
   def silence(&blk); end
 
-  def trace(e, newline=T.unsafe(nil), force=T.unsafe(nil)); end
+  def trace(e, newline = T.unsafe(nil), force = T.unsafe(nil)); end
 
   def unprinted_warnings(); end
 
-  def warn(msg, newline=T.unsafe(nil)); end
+  def warn(msg, newline = T.unsafe(nil)); end
 
   def yes?(msg); end
   LEVELS = ::T.let(nil, ::T.untyped)
@@ -1874,7 +1970,15 @@ class Bundler::URI::FTP
 end
 
 class Bundler::URI::FTP
-  def self.new2(user, password, host, port, path, typecode=T.unsafe(nil), arg_check=T.unsafe(nil)); end
+  def self.new2(
+    user,
+    password,
+    host,
+    port,
+    path,
+    typecode = T.unsafe(nil),
+    arg_check = T.unsafe(nil)
+  ); end
 end
 
 class Bundler::URI::File
@@ -1915,7 +2019,7 @@ class Bundler::URI::Generic
 
   def eql?(oth); end
 
-  def find_proxy(env=T.unsafe(nil)); end
+  def find_proxy(env = T.unsafe(nil)); end
 
   def fragment(); end
 
@@ -1931,7 +2035,19 @@ class Bundler::URI::Generic
 
   def hostname=(v); end
 
-  def initialize(scheme, userinfo, host, port, registry, path, opaque, query, fragment, parser=T.unsafe(nil), arg_check=T.unsafe(nil)); end
+  def initialize(
+    scheme,
+    userinfo,
+    host,
+    port,
+    registry,
+    path,
+    opaque,
+    query,
+    fragment,
+    parser = T.unsafe(nil),
+    arg_check = T.unsafe(nil)
+  ); end
 
   def merge(oth); end
 
@@ -1995,7 +2111,7 @@ class Bundler::URI::Generic
 
   def set_user(v); end
 
-  def set_userinfo(user, password=T.unsafe(nil)); end
+  def set_userinfo(user, password = T.unsafe(nil)); end
 
   def user(); end
 
@@ -2134,15 +2250,15 @@ Bundler::URI::REGEXP = Bundler::URI::RFC2396_REGEXP
 
 class Bundler::URI::RFC2396_Parser
   include ::Bundler::URI::RFC2396_REGEXP
-  def escape(str, unsafe=T.unsafe(nil)); end
+  def escape(str, unsafe = T.unsafe(nil)); end
 
-  def extract(str, schemes=T.unsafe(nil)); end
+  def extract(str, schemes = T.unsafe(nil)); end
 
-  def initialize(opts=T.unsafe(nil)); end
+  def initialize(opts = T.unsafe(nil)); end
 
   def join(*uris); end
 
-  def make_regexp(schemes=T.unsafe(nil)); end
+  def make_regexp(schemes = T.unsafe(nil)); end
 
   def parse(uri); end
 
@@ -2152,7 +2268,7 @@ class Bundler::URI::RFC2396_Parser
 
   def split(uri); end
 
-  def unescape(str, escaped=T.unsafe(nil)); end
+  def unescape(str, escaped = T.unsafe(nil)); end
 end
 
 class Bundler::URI::RFC2396_Parser
@@ -2228,15 +2344,21 @@ end
 
 module Bundler::URI
   extend ::Bundler::URI::Escape
-  def self.decode_www_form(str, enc=T.unsafe(nil), separator: T.unsafe(nil), use__charset_: T.unsafe(nil), isindex: T.unsafe(nil)); end
+  def self.decode_www_form(
+    str,
+    enc = T.unsafe(nil),
+    separator: T.unsafe(nil),
+    use__charset_: T.unsafe(nil),
+    isindex: T.unsafe(nil)
+  ); end
 
-  def self.decode_www_form_component(str, enc=T.unsafe(nil)); end
+  def self.decode_www_form_component(str, enc = T.unsafe(nil)); end
 
-  def self.encode_www_form(enum, enc=T.unsafe(nil)); end
+  def self.encode_www_form(enum, enc = T.unsafe(nil)); end
 
-  def self.encode_www_form_component(str, enc=T.unsafe(nil)); end
+  def self.encode_www_form_component(str, enc = T.unsafe(nil)); end
 
-  def self.extract(str, schemes=T.unsafe(nil), &block); end
+  def self.extract(str, schemes = T.unsafe(nil), &block); end
 
   def self.get_encoding(label); end
 
@@ -2244,7 +2366,7 @@ module Bundler::URI
 
   def self.parse(uri); end
 
-  def self.regexp(schemes=T.unsafe(nil)); end
+  def self.regexp(schemes = T.unsafe(nil)); end
 
   def self.scheme_list(); end
 
@@ -2433,7 +2555,11 @@ class DidYouMean::TreeSpellChecker
 
   def dimensions(); end
 
-  def initialize(dictionary:, separator: T.unsafe(nil), augment: T.unsafe(nil)); end
+  def initialize(
+    dictionary:,
+    separator: T.unsafe(nil),
+    augment: T.unsafe(nil)
+  ); end
 
   def separator(); end
 end
@@ -2481,9 +2607,9 @@ class Dir
 end
 
 class ERB
-  def def_method(mod, methodname, fname=T.unsafe(nil)); end
+  def def_method(mod, methodname, fname = T.unsafe(nil)); end
 
-  def def_module(methodname=T.unsafe(nil)); end
+  def def_module(methodname = T.unsafe(nil)); end
 end
 
 class Encoding
@@ -2846,7 +2972,11 @@ class FrozenError
 end
 
 module GC
-  def garbage_collect(full_mark: T.unsafe(nil), immediate_mark: T.unsafe(nil), immediate_sweep: T.unsafe(nil)); end
+  def garbage_collect(
+    full_mark: T.unsafe(nil),
+    immediate_mark: T.unsafe(nil),
+    immediate_sweep: T.unsafe(nil)
+  ); end
 end
 
 module GC
@@ -2880,7 +3010,13 @@ end
 Gem::Ext::ExtConfBuilder::FileEntry = FileUtils::Entry_
 
 class Gem::Ext::ExtConfBuilder
-  def self.build(extension, dest_path, results, args=T.unsafe(nil), lib_dir=T.unsafe(nil)); end
+  def self.build(
+    extension,
+    dest_path,
+    results,
+    args = T.unsafe(nil),
+    lib_dir = T.unsafe(nil)
+  ); end
 
   def self.get_relative_path(path); end
 end
@@ -3041,9 +3177,9 @@ class Gem::Package::TarReader::Entry
 
   def pos(); end
 
-  def read(len=T.unsafe(nil)); end
+  def read(len = T.unsafe(nil)); end
 
-  def readpartial(maxlen=T.unsafe(nil), outbuf=T.unsafe(nil)); end
+  def readpartial(maxlen = T.unsafe(nil), outbuf = T.unsafe(nil)); end
 
   def rewind(); end
 
@@ -3064,9 +3200,9 @@ class Gem::Package::TarWriter
 end
 
 class Gem::Package
-  def self.new(gem, security_policy=T.unsafe(nil)); end
+  def self.new(gem, security_policy = T.unsafe(nil)); end
 
-  def self.raw_spec(path, security_policy=T.unsafe(nil)); end
+  def self.raw_spec(path, security_policy = T.unsafe(nil)); end
 end
 
 class Gem::PathSupport
@@ -3305,7 +3441,7 @@ class Gem::Security::Policy
 
   def check_trust(chain, digester, trust_dir); end
 
-  def initialize(name, policy=T.unsafe(nil), opt=T.unsafe(nil)); end
+  def initialize(name, policy = T.unsafe(nil), opt = T.unsafe(nil)); end
 
   def name(); end
 
@@ -3319,7 +3455,13 @@ class Gem::Security::Policy
 
   def subject(certificate); end
 
-  def verify(chain, key=T.unsafe(nil), digests=T.unsafe(nil), signatures=T.unsafe(nil), full_name=T.unsafe(nil)); end
+  def verify(
+    chain,
+    key = T.unsafe(nil),
+    digests = T.unsafe(nil),
+    signatures = T.unsafe(nil),
+    full_name = T.unsafe(nil)
+  ); end
 
   def verify_chain(); end
 
@@ -3357,7 +3499,12 @@ class Gem::Security::Signer
 
   def extract_name(cert); end
 
-  def initialize(key, cert_chain, passphrase=T.unsafe(nil), options=T.unsafe(nil)); end
+  def initialize(
+    key,
+    cert_chain,
+    passphrase = T.unsafe(nil),
+    options = T.unsafe(nil)
+  ); end
 
   def key(); end
 
@@ -3383,7 +3530,7 @@ class Gem::Security::TrustDir
 
   def each_certificate(); end
 
-  def initialize(dir, permissions=T.unsafe(nil)); end
+  def initialize(dir, permissions = T.unsafe(nil)); end
 
   def issuer_of(certificate); end
 
@@ -3399,27 +3546,62 @@ end
 module Gem::Security
   def self.alt_name_or_x509_entry(certificate, x509_entry); end
 
-  def self.create_cert(subject, key, age=T.unsafe(nil), extensions=T.unsafe(nil), serial=T.unsafe(nil)); end
+  def self.create_cert(
+    subject,
+    key,
+    age = T.unsafe(nil),
+    extensions = T.unsafe(nil),
+    serial = T.unsafe(nil)
+  ); end
 
-  def self.create_cert_email(email, key, age=T.unsafe(nil), extensions=T.unsafe(nil)); end
+  def self.create_cert_email(
+    email,
+    key,
+    age = T.unsafe(nil),
+    extensions = T.unsafe(nil)
+  ); end
 
-  def self.create_cert_self_signed(subject, key, age=T.unsafe(nil), extensions=T.unsafe(nil), serial=T.unsafe(nil)); end
+  def self.create_cert_self_signed(
+    subject,
+    key,
+    age = T.unsafe(nil),
+    extensions = T.unsafe(nil),
+    serial = T.unsafe(nil)
+  ); end
 
-  def self.create_key(length=T.unsafe(nil), algorithm=T.unsafe(nil)); end
+  def self.create_key(length = T.unsafe(nil), algorithm = T.unsafe(nil)); end
 
   def self.email_to_name(email_address); end
 
-  def self.re_sign(expired_certificate, private_key, age=T.unsafe(nil), extensions=T.unsafe(nil)); end
+  def self.re_sign(
+    expired_certificate,
+    private_key,
+    age = T.unsafe(nil),
+    extensions = T.unsafe(nil)
+  ); end
 
   def self.reset(); end
 
-  def self.sign(certificate, signing_key, signing_cert, age=T.unsafe(nil), extensions=T.unsafe(nil), serial=T.unsafe(nil)); end
+  def self.sign(
+    certificate,
+    signing_key,
+    signing_cert,
+    age = T.unsafe(nil),
+    extensions = T.unsafe(nil),
+    serial = T.unsafe(nil)
+  ); end
 
   def self.trust_dir(); end
 
   def self.trusted_certificates(&block); end
 
-  def self.write(pemmable, path, permissions=T.unsafe(nil), passphrase=T.unsafe(nil), cipher=T.unsafe(nil)); end
+  def self.write(
+    pemmable,
+    path,
+    permissions = T.unsafe(nil),
+    passphrase = T.unsafe(nil),
+    cipher = T.unsafe(nil)
+  ); end
 end
 
 class Gem::Source
@@ -3432,25 +3614,25 @@ class Gem::SpecFetcher
   include ::Gem::Text
   def available_specs(type); end
 
-  def detect(type=T.unsafe(nil)); end
+  def detect(type = T.unsafe(nil)); end
 
-  def initialize(sources=T.unsafe(nil)); end
+  def initialize(sources = T.unsafe(nil)); end
 
   def latest_specs(); end
 
   def prerelease_specs(); end
 
-  def search_for_dependency(dependency, matching_platform=T.unsafe(nil)); end
+  def search_for_dependency(dependency, matching_platform = T.unsafe(nil)); end
 
   def sources(); end
 
-  def spec_for_dependency(dependency, matching_platform=T.unsafe(nil)); end
+  def spec_for_dependency(dependency, matching_platform = T.unsafe(nil)); end
 
   def specs(); end
 
-  def suggest_gems_from_name(gem_name, type=T.unsafe(nil)); end
+  def suggest_gems_from_name(gem_name, type = T.unsafe(nil)); end
 
-  def tuples_for(source, type, gracefully_ignore=T.unsafe(nil)); end
+  def tuples_for(source, type, gracefully_ignore = T.unsafe(nil)); end
 end
 
 class Gem::SpecFetcher
@@ -3485,7 +3667,7 @@ class Gem::SpecificationPolicy
 
   def packaging=(packaging); end
 
-  def validate(strict=T.unsafe(nil)); end
+  def validate(strict = T.unsafe(nil)); end
 
   def validate_dependencies(); end
 
@@ -3605,7 +3787,7 @@ IO::EWOULDBLOCKWaitWritable = IO::EAGAINWaitWritable
 class IPAddr
   def ==(other); end
 
-  def initialize(addr=T.unsafe(nil), family=T.unsafe(nil)); end
+  def initialize(addr = T.unsafe(nil), family = T.unsafe(nil)); end
 end
 
 class Integer
@@ -3752,9 +3934,14 @@ class Range
 end
 
 module RbConfig
-  def self.expand(val, config=T.unsafe(nil)); end
+  def self.expand(val, config = T.unsafe(nil)); end
 
-  def self.fire_update!(key, val, mkconf=T.unsafe(nil), conf=T.unsafe(nil)); end
+  def self.fire_update!(
+    key,
+    val,
+    mkconf = T.unsafe(nil),
+    conf = T.unsafe(nil)
+  ); end
 
   def self.ruby(); end
 end
@@ -3783,7 +3970,7 @@ class Set
 
   def eql?(o); end
 
-  def flatten_merge(set, seen=T.unsafe(nil)); end
+  def flatten_merge(set, seen = T.unsafe(nil)); end
 
   def pretty_print(pp); end
 
@@ -3855,4 +4042,3 @@ end
 module Warning
   extend ::Warning
 end
-

@@ -17,5 +17,3 @@ for num in (1..999)
 end
 
 puts sum
-
-
