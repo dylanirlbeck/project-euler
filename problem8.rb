@@ -16,7 +16,7 @@ NUM = T.let(NUM_INT.to_s, String)
 left_bound = 0
 right_bound = 1
 current_product = NUM[0].to_i
-max_product = 0
+max_product = T.let(0, Integer)
 max_substring = T.let("", String)
 NUM_ADJACENT = 13
 
@@ -38,7 +38,7 @@ while right_bound < NUM.length do
   end
 
   if current_product > max_product then
-    max_product = T.let(current_product, Integer)
+    max_product = current_product
     max_substring = T.let(NUM[left_bound..right_bound], T.nilable(String))
   end
 end
